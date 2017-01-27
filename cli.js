@@ -38,18 +38,18 @@ const cli = meow(`
 });
 
 const input = cli.input[0];
-const fn = !cli.flags.slug ? cuid : cuid.slug;
+const fn = cli.flags.slug ? cuid.slug : cuid;
 
-function init (data, cmd = cuid) {
-  let loop = +data || 0;
+function init(data, cmd = cuid) {
+  let loop = Number(data) || 0;
   do {
     console.log(cmd());
-    loop = loop - 1;
+    loop -= 1;
   } while (loop > 0);
 }
 
 if (input && process.stdin.isTTY) {
   init(input, fn);
 } else {
-  stdin().then((data) => init(data, fn));
+  stdin().then(data => init(data, fn));
 }
