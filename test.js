@@ -33,3 +33,14 @@ test('cuid slug length', async assert => {
 
   assert.end();
 });
+
+test('using stdin', async assert => {
+	const {stdout} = await execa('./cli.js', {
+		input: 0
+	});
+
+  const actual = stdout.length;
+  const expected = 1;
+
+  assert.equal(actual, expected, 'cuid should work with stdin and stdout should contain 1 entry');
+});
