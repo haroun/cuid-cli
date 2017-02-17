@@ -4,7 +4,7 @@
   "description": "Get a cuid (collision-resistant id)",
   "main": "cli.js",
   "scripts": {
-    "test": "xo --space && tape test.js"
+    "test": "xo --space && babel-node test.js"
   },
   "repository": {
     "type": "git",
@@ -32,8 +32,24 @@
     "meow": "^3.7.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.22.2",
+    "babel-plugin-transform-runtime": "^6.22.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-stage-3": "^6.22.0",
     "execa": "^0.6.0",
     "tape": "^4.6.3",
     "xo": "^0.17.1"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-3"
+    ],
+    "plugins": [
+      "transform-runtime"
+    ]
+  },
+  "xo": {
+    "space": true
   }
 }
