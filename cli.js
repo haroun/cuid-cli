@@ -1,10 +1,11 @@
 #!/usr/bin/env node
-
+'use strict';
 const meow = require('meow');
 const stdin = require('get-stdin');
 const cuid = require('cuid');
 
-const cli = meow(`
+const cli = meow(`$ cuid --help
+
   Usage
     $ cuid [number]
 
@@ -36,6 +37,9 @@ const cli = meow(`
     1o2z7ud
     1o3z73h
 `, {
+  boolean: [
+    'slug'
+  ],
   alias: {
     s: 'slug'
   }
