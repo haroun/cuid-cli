@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-'use strict';
+
 const meow = require('meow');
 const stdin = require('get-stdin');
 const cuid = require('cuid');
@@ -7,10 +7,10 @@ const cuid = require('cuid');
 const cli = meow(`$ cuid --help
 
   Usage
-    $ cuid [number]
+    $ cuid <option> <number>
 
   Options:
-    --slug, -s Get slug
+    -s, --slug Get slug
 
   Example
     $ cuid
@@ -37,27 +37,26 @@ const cli = meow(`$ cuid --help
     1o2z7ud
     1o3z73h
 `, {
-  boolean: [
-    'slug'
-  ],
-  alias: {
-    s: 'slug'
+  flags: {
+    slug: {
+      type: 'boolean',
+      alias: 's'
+    }
   }
 });
 
 const input = cli.input[0];
-const fn = cli.flags.slug ? cuid.slug : cuid;
+const flags = cli.flags;
 
-function init(data, cmd = cuid) {
-  let loop = Number(data) || 0;
-  do {
-    console.log(cmd());
-    loop -= 1;
-  } while (loop > 0);
+function init(data = 1, flags = {slug: false}) {
+  const cmd = (flags.s || flags.slug) === true ? cuid.slug : cuid;
+  const loop = Number(data);
+
+  [...Array(loop)].forEach(() => console.log(cmd()));
 }
 
-if (input && process.stdin.isTTY) {
-  init(input, fn);
+if (input) {
+  init(input, flags);
 } else {
-  stdin().then(data => init(data, fn));
+  stdin().then(data => init(data, flags));
 }
