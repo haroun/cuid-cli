@@ -40,7 +40,8 @@ const cli = meow(`$ cuid --help
   flags: {
     slug: {
       type: 'boolean',
-      alias: 's'
+      alias: 's',
+      default: false
     }
   }
 });

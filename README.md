@@ -50,7 +50,7 @@ $ cuid --help
 
 ## Related
 
-- [cuid](https://github.com/ericelliott/cuid) - API for this module
+*   [cuid](https://github.com/ericelliott/cuid) - API for this module
 
 
 ## License
