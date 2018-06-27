@@ -4,8 +4,8 @@
   "description": "Get a cuid (collision-resistant id)",
   "main": "cli.js",
   "scripts": {
-    "debug": "babel-node --inspect --debug-brk cli.js",
-    "test": "xo && babel-node test.js | faucet"
+    "debug": "node --inspect --debug-brk cli.js",
+    "test": "xo && node test.js | faucet"
   },
   "repository": {
     "type": "git",
@@ -28,17 +28,15 @@
   },
   "homepage": "https://github.com/haroun/cuid-cli#readme",
   "dependencies": {
-    "cuid": "^1.3.8",
-    "get-stdin": "^5.0.1",
-    "meow": "^4.0.0"
+    "cuid": "^2.1.1",
+    "get-stdin": "^6.0.0",
+    "meow": "^5.0.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "execa": "^0.8.0",
+    "execa": "^0.10.0",
     "faucet": "0.0.1",
-    "tape": "^4.8.0",
-    "xo": "^0.18.2"
+    "tape": "^4.9.1",
+    "xo": "^0.21.1"
   },
   "bin": {
     "cuid": "cli.js"
@@ -46,19 +44,10 @@
   "files": [
     "cli.js"
   ],
+  "engines": {
+    "node": ">=6.0.0"
+  },
   "xo": {
     "space": true
-  },
-  "babel": {
-    "presets": [
-      [
-        "env",
-        {
-          "targets": {
-            "node": "current"
-          }
-        }
-      ]
-    ]
   }
 }

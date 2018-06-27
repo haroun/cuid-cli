@@ -1,5 +1,5 @@
-import test from 'tape';
-import execa from 'execa';
+const test = require('tape');
+const execa = require('execa');
 
 test('cuid output length', async assert => {
   const {stdout} = await execa('./cli.js', [1]);
