@@ -17,9 +17,11 @@ test('cuid output length', async assert => {
 test('cuid output content', async assert => {
   const {stdout} = await execa('./cli.js', [4]);
 
+  const set = new Set(stdout.split('\n'));
+
   const message = 'cuid should contain unique values only';
 
-  const actual = Array.from(new Set(stdout.split('\n'))).length;
+  const actual = [...set].length;
   const expected = 4;
 
   assert.equal(actual, expected, message);
@@ -43,9 +45,11 @@ test('cuid slug length', async assert => {
 test('using stdin', async assert => {
   const {stdout} = await execa('./cli.js', [], {input: '1'});
 
+  const set = new Set(stdout.split('\n'));
+
   const message = 'cuid should work with stdin and stdout should contain 1 entry';
 
-  const actual = Array.from(new Set(stdout.split('\n'))).length;
+  const actual = [...set].length;
   const expected = 1;
 
   assert.equal(actual, expected, message);

@@ -46,14 +46,13 @@ const cli = meow(`$ cuid --help
   }
 });
 
-const input = cli.input[0];
-const flags = cli.flags;
+const {input: [input], flags} = cli;
 
 function init(data = 1, flags = {slug: false}) {
   const cmd = (flags.s || flags.slug) === true ? cuid.slug : cuid;
   const loop = Number(data);
 
-  [...Array(loop)].forEach(() => console.log(cmd()));
+  [...new Array(loop)].forEach(() => console.log(cmd()));
 }
 
 if (input) {
