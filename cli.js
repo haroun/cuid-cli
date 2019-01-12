@@ -50,7 +50,7 @@ const {input: [input], flags} = cli;
 
 function init(data = 1, flags = {slug: false}) {
   const cmd = (flags.s || flags.slug) === true ? cuid.slug : cuid;
-  const loop = Number(data);
+  const loop = Number(data || 1);
 
   [...new Array(loop)].forEach(() => console.log(cmd()));
 }
