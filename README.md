@@ -6,7 +6,7 @@
 ## Install
 
 ```
-$ npm install --global cuid-cli
+$ npm install --global @haroun/cuid-cli
 ```
 
 
