@@ -2,7 +2,9 @@ const test = require('tape');
 const execa = require('execa');
 
 test('cuid output length', async assert => {
-  const {stdout} = await execa('./cli.js', [1]);
+  const child = execa('./cli.js');
+  child.stdin.end();
+  const {stdout} = await child;
 
   const message = 'slug should be more than 10 characters long';
 
