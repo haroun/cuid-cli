@@ -1,18 +1,19 @@
 #!/usr/bin/env node
 
 const meow = require('meow');
-const stdin = require('get-stdin');
+const getStdin = require('get-stdin');
 const cuid = require('cuid');
 
 const cli = meow(`$ cuid --help
 
   Usage
-    $ cuid <option> <number>
+    $ cuid [--slug] [number]
+    $ echo [number] | cuid [--slug]
 
-  Options:
+  Options
     -s, --slug Get slug
 
-  Example
+  Examples
     $ cuid
     ciyefyc630000x0y7mhd8o67n
 
@@ -48,15 +49,18 @@ const cli = meow(`$ cuid --help
 
 const {input: [input], flags} = cli;
 
-function init(data = 1, flags = {slug: false}) {
+const init = async (data = 1, flags = {slug: false}) => {
   const cmd = (flags.s || flags.slug) === true ? cuid.slug : cuid;
   const loop = Number(data || 1);
 
   [...new Array(loop)].forEach(() => console.log(cmd()));
-}
+};
 
-if (input) {
-  init(input, flags);
-} else {
-  stdin().then(data => init(data, flags));
-}
+(async () => {
+  if (input) {
+    init(input, flags);
+  } else {
+    const data = await getStdin();
+    init(data, flags);
+  }
+})();

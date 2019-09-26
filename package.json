@@ -28,15 +28,15 @@
   },
   "homepage": "https://github.com/haroun/cuid-cli#readme",
   "dependencies": {
-    "cuid": "^2.1.4",
-    "get-stdin": "^6.0.0",
+    "cuid": "^2.1.6",
+    "get-stdin": "^7.0.0",
     "meow": "^5.0.0"
   },
   "devDependencies": {
-    "execa": "^1.0.0",
+    "execa": "^2.0.4",
     "faucet": "0.0.1",
-    "tape": "^4.9.2",
-    "xo": "^0.23.0"
+    "tape": "^4.11.0",
+    "xo": "^0.25.3"
   },
   "bin": {
     "cuid": "cli.js"
@@ -45,7 +45,7 @@
     "cli.js"
   ],
   "engines": {
-    "node": ">=7.0.0"
+    "node": ">=8.0.0"
   },
   "xo": {
     "space": true

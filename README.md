@@ -9,6 +9,12 @@
 $ npm install --global @haroun/cuid-cli
 ```
 
+If you don't want to install the package globally, you can use npx instead
+
+```
+$ npx @haroun/cuid-cli
+```
+
 
 ## Usage
 
@@ -16,12 +22,13 @@ $ npm install --global @haroun/cuid-cli
 $ cuid --help
 
   Usage
-    $ cuid [number]
+    $ cuid [--slug] [number]
+    $ echo [number] | cuid [--slug]
 
-  Options:
-    --slug, -s Get slug
+  Options
+    -s, --slug Get slug
 
-  Example
+  Examples
     $ cuid
     ciyefyc630000x0y7mhd8o67n
 
