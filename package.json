@@ -1,6 +1,6 @@
 {
   "name": "@haroun/cuid-cli",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Get a cuid (collision-resistant id)",
   "main": "cli.js",
   "scripts": {
