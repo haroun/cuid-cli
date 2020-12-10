@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const meow = require('meow')
-const getStdin = require('get-stdin')
+const stdin = require('get-stdin')
 const cuid = require('cuid')
 
 const cli = meow(`$ cuid --help
@@ -48,9 +48,10 @@ const cli = meow(`$ cuid --help
 })
 
 const {input: [input], flags} = cli
+const {slug = false} = flags
 
-const init = async (data = 1, flags = {slug: false}) => {
-  const cmd = (flags.s || flags.slug) === true ? cuid.slug : cuid
+const init = async ({data = 1, slug = false}) => {
+  const cmd = slug === true ? cuid.slug : cuid
   const loop = Number(data || 1);
 
   [...new Array(loop)].forEach(() => console.log(cmd()))
@@ -58,9 +59,9 @@ const init = async (data = 1, flags = {slug: false}) => {
 
 (async () => {
   if (input) {
-    init(input, flags)
+    init({data: input, slug})
   } else {
-    const data = await getStdin()
-    init(data, flags)
+    const data = await stdin()
+    init({data, slug})
   }
 })()
