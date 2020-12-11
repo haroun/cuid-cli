@@ -1,4 +1,4 @@
-# cuid-cli [![Build Status](https://travis-ci.org/haroun/cuid-cli.svg?branch=master)](https://travis-ci.org/haroun/cuid-cli)
+# cuid-cli ![Node.js CI](https://github.com/haroun/cuid-cli/workflows/Node.js%20CI/badge.svg)
 
 > Command line interface for [cuid](https://github.com/ericelliott/cuid)
 
