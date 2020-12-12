@@ -4,8 +4,10 @@
   "description": "Get a cuid (collision-resistant id)",
   "main": "cli.js",
   "scripts": {
-    "debug": "node --inspect --debug-brk cli.js",
-    "test": "xo && node test.js | faucet"
+    "debug": "node --inspect --inspect-brk cli.js",
+    "test": "node test.js | faucet",
+    "postversion": "git push && git push --tags",
+    "pretest": "xo"
   },
   "repository": {
     "type": "git",
@@ -34,7 +36,7 @@
   },
   "devDependencies": {
     "execa": "^5.0.0",
-    "faucet": "^0.0.1",
+    "faucet": "0.0.1",
     "tape": "^5.0.1",
     "xo": "^0.36.1"
   },
