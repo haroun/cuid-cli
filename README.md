@@ -1,4 +1,4 @@
-# cuid-cli ![Node.js CI](https://github.com/haroun/cuid-cli/workflows/Node.js%20CI/badge.svg)
+# cuid-cli ![Node.js CI](https://github.com/haroun/cuid-cli/workflows/Node.js%20CI/badge.svg) ![CodeQL](https://github.com/haroun/cuid-cli/workflows/CodeQL/badge.svg)
 
 > Command line interface for [cuid](https://github.com/ericelliott/cuid)
 
