@@ -1,5 +1,5 @@
-const test = require('tape')
-const execa = require('execa')
+import test from 'tape'
+import execa from 'execa'
 
 test('cuid output length', async assert => {
   const child = execa('./cli.js')
