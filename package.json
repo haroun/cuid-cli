@@ -2,7 +2,8 @@
   "name": "@haroun/cuid-cli",
   "version": "2.1.0",
   "description": "Get a cuid (collision-resistant id)",
-  "main": "cli.js",
+  "exports": "./cli.js",
+  "type": "module",
   "scripts": {
     "debug": "node --inspect --inspect-brk cli.js",
     "test": "node test.js | faucet",
@@ -31,23 +32,23 @@
   "homepage": "https://github.com/haroun/cuid-cli#readme",
   "dependencies": {
     "cuid": "^2.1.8",
-    "get-stdin": "^8.0.0",
-    "meow": "^8.0.0"
+    "get-stdin": "^9.0.0",
+    "meow": "^9.0.0"
   },
   "devDependencies": {
     "execa": "^5.0.0",
     "faucet": "0.0.1",
-    "tape": "^5.0.1",
-    "xo": "^0.36.1"
+    "tape": "^5.2.2",
+    "xo": "^0.39.1"
   },
   "bin": {
-    "cuid": "cli.js"
+    "cuid": "./cli.js"
   },
   "files": [
     "cli.js"
   ],
   "engines": {
-    "node": ">=10.0.0"
+    "node": ">=12"
   },
   "xo": {
     "space": true,
