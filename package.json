@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "execa": "^5.0.0",
-    "faucet": "0.0.1",
+    "faucet": "0.0.4",
     "tape": "^5.2.2",
     "xo": "^0.39.1"
   },
